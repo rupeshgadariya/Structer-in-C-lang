@@ -1,0 +1,17 @@
+// Define a structure Employee with member variables id, name, salary 
+#include<stdio.h>
+ struct emp
+ {
+    int id;
+    char name[20];
+    float sal;
+ };
+ 
+
+    int main()
+{
+        struct emp a,b;   // a and b is declaration hai
+       
+        
+    return 0;
+}
