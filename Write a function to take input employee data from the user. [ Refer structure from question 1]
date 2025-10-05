@@ -1,0 +1,32 @@
+// Write a function to take input employee data from the user. [ Refer structure from question 1] 
+  #include<stdio.h>
+  #include<string.h>
+
+  struct employe
+  {
+     int id;
+     char name[20];
+     float sal;
+  };
+
+ struct employe input()
+    {    struct employe ab;
+        printf("Enter a id  ");
+        scanf("%d",&ab.id);  fflush(stdin);
+        printf("Enter your name :");
+        fgets(ab.name,20,stdin);
+        ab.name[strlen(ab.name)-1]='\0';
+        printf("Enter a salary ");
+        scanf("%f",&ab.sal);
+        return ab;
+    }
+
+    int main()
+  {
+        struct employe em1;
+       em1=input();
+        
+
+        printf("\n%d    %s    %.2f",em1.id,em1.name,em1.sal);
+    return 0;
+  }
