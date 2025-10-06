@@ -1,0 +1,30 @@
+// Write a function to display employee data. [ Refer structure from question 1] 
+#include<stdio.h>
+#include<string.h>
+
+struct employe
+{
+   int id;
+   char name[20];
+   float sal;
+};
+
+void show(struct employe em)
+{
+     printf("\n%d    %s   %.2f",em.id,em.name,em.sal);
+}
+
+
+    int main()
+{
+     struct employe p1,p2={10001,"Pal Sahab",11500};
+     p1.id=10000;
+     strcpy(p1.name,"Rupesh kumar");
+     p1.sal=55000;
+
+     show(p1);
+     show(p2);       
+        
+    return 0;
+}
+
