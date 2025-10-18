@@ -1,0 +1,55 @@
+// Write a function to sort employees according to their names [refer structure from question 1]
+#include<stdio.h>
+#include<string.h>
+ struct employe
+ {
+    int id;
+    char name[20];
+    float salary;
+ };
+  
+  struct employe input()
+    {    struct employe x;
+        printf("Enter a employe id, name and salary : ");
+        scanf("%d",&x.id); fflush(stdin);
+        fgets(x.name,20,stdin);
+        x.name[strlen(x.name)-1]=0;
+        scanf("%f",&x.salary);
+        return x;
+    }
+  
+  void show(struct employe x)
+  {
+     printf("\n%d  %s   %.2f",x.id,x.name,x.salary);
+  }
+ 
+ void sort( struct employe *em, int num )
+    {
+      struct employe temp;
+
+    for(int j=1; j<num; j++)
+      for( int i=0; i<num-j; i++)
+        if ( strcasecmp(em[i].name,em[i+1].name) > 0 )
+          {
+            temp = em[i];
+            em[i] = em[i+1];
+            em[i+1] = temp;
+          }
+    } 
+       
+  
+    int main()
+{
+    struct employe emp[5];
+
+    for (int i = 0; i < 5; i++)
+      emp[i]=input();
+
+    sort(emp,5);
+
+    for (int i = 0; i < 5; i++)
+     show(emp[i]);
+
+     
+    return 0;
+}
