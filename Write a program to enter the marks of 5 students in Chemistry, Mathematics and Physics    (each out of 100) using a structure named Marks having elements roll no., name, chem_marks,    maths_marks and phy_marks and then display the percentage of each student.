@@ -1,0 +1,54 @@
+/*  Write a program to enter the marks of 5 students in Chemistry, Mathematics and Physics 
+  (each out of 100) using a structure named Marks having elements roll no., name, chem_marks,
+   maths_marks and phy_marks and then display the percentage of each student.   */
+#include<stdio.h>
+#include<string.h>
+
+    int main()
+{
+    float res;
+
+        struct student
+        {
+            int roll_no;
+            char name[30];
+            float chem,maths,phy;
+        };
+    
+    struct student st[5];
+
+    for (int i = 0; i < 5; i++)
+    {
+        printf("Enter a Roll No. ");
+        scanf("%d",&st[i].roll_no);         fflush(stdin);
+        printf("Enter Student Name ");
+        fgets(st[i].name, 30, stdin);       st[i].name[strlen(st[i].name)-1] = '\0';
+        printf("Enter marks out of 100\n");
+        printf("Chemistry : ");
+        while(1) {
+                    scanf("%f",&st[i].chem);
+                    if( st[i].chem<=100.0 && st[i].chem>= -100.0 )
+                    break;
+                    else  printf("Invailed Mark\n");                      }
+        printf("Mathmetics : ");
+        while(1) {
+                    scanf("%f",&st[i].maths);
+                    if( st[i].maths<=100 && st[i].maths>=-100 )
+                    break;
+                    else  printf("Invailed Mark\n");                      }
+        printf("Physics : ");
+        while(1) {
+                    scanf("%f",&st[i].phy);
+                    if( st[i].phy<=100 && st[i].phy>=-100 )
+                    break;
+                    else  printf("Invailed Mark\n");                      }
+    }
+
+    for (int i = 0; i < 5; i++)
+    {
+       res = (st[i].chem + st[i].maths + st[i].phy)*100/300;
+       printf("\nRoll No. = %d\nName : %s\nPercentage = %.2f%%\n",st[i].roll_no, st[i].name,res);
+    }
+
+    return 0;
+}
