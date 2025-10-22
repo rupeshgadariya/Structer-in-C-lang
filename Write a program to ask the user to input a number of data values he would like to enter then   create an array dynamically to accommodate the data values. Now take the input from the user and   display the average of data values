@@ -1,0 +1,42 @@
+/*  Write a program to ask the user to input a number of data values he would like to enter then
+  create an array dynamically to accommodate the data values. Now take the input from the user and
+  display the average of data values    */
+#include<stdio.h>
+#include<stdlib.h>
+
+void ctr()
+{
+    char ch;
+    printf("Would you like enter value (Y/N) ");
+    scanf("%c",&ch);
+    if (ch=='y' || ch=='Y')
+    {
+        int x, sum=0, *ptr=NULL;
+        float avg;
+        printf("How many would you enter a number : ");
+        scanf("%d",&x);
+        
+          ptr = (int*)calloc(x,4); 
+
+        printf("Enter %d value :\n",x);
+        for(int i=0; i<x; i++)
+        {   printf("%d Value = ",i+1);
+          scanf("%d",&ptr[i]);          }
+        for(int i=0; i<x; i++)
+         sum = sum + ptr[i];
+        avg = (float)sum/x;
+
+        printf("Average of %d number is %.2f",x,avg);
+        free(ptr);  ptr = NULL;
+    }
+    else 
+      printf("THANK YOU");
+    
+}
+
+    int main()
+{
+        ctr();
+        
+    return 0;
+}
