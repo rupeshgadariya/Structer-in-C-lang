@@ -1,1 +1,0 @@
-# Structer-in-C-lang
