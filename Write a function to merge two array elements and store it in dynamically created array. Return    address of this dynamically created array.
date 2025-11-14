@@ -1,0 +1,57 @@
+/*  Write a function to merge two array elements and store it in dynamically created array. Return 
+  address of this dynamically created array.    */
+  #include<stdio.h>
+  #include<stdlib.h>
+
+  int* merge()
+  {
+     int x,y;
+     char ch;
+     printf("Do you want create arry (Y/N) ");
+     scanf(" %c", &ch);
+
+    if (ch=='y' || ch=='Y')
+    {
+       printf("How many input in first arry ");
+       scanf("%d", &x);
+       int *p = (int*)malloc( x*sizeof(int) );
+
+       printf("How many input in first arry ");
+       scanf("%d", &y);
+       int *q = (int*)malloc( y*sizeof(int) );
+
+        printf("Enter value in first arry : ");
+        for (int i = 0; i < x; i++)
+           scanf("%d", (p+i));
+        
+         printf("Enter value in second arry : ");
+         for (int i = 0; i < y; i++)
+            scanf("%d", (q+i));
+         
+         int *ptr = (int*)malloc((x+y)*sizeof(int));
+         for (int i = 0; i < x; i++)
+          ptr[i] = p[i];
+         for (int i = 0; i < y; i++)
+          ptr[x+i] = q[i];
+         
+        for (int i = 0; i < x+y; i++)
+         printf("%d  ",ptr[i]);
+        
+          free(p);  p = NULL;
+          free(q);  q = NULL;
+          
+          return ptr;
+    }
+    else
+    {  printf("You can not create arry");
+        return NULL;
+  }
+  }
+    int main()
+    
+  {
+      int *x = merge();
+      free(x);
+         
+    return 0;
+  }
