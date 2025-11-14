@@ -1,0 +1,42 @@
+// Write a program to calculate the sum of n numbers entered by the user using malloc and free. 
+#include<stdio.h>
+#include<stdlib.h>
+
+ void sum()
+ {  char ch;
+    printf("Would you like sum of some number (Y/N) : ");
+    scanf("%c",&ch);
+
+    if (ch=='y' || ch =='Y')
+    {
+        int num, sum=0; 
+        printf("How many numbers to sum : ");
+        scanf("%d", &num);
+
+         int *p[num];      // create variable
+        for (int i = 0; i < num; i++)
+         p[i] = NULL;
+        
+         printf("Enter value\n");
+        for (int i = 0; i < num; i++)
+        {  p[i] = (int*)malloc( sizeof(int) );
+           printf("%d Value : ",i+1);
+           scanf("%d", p[i]);
+           sum = sum + *p[i];
+        }
+
+        printf("sum of %d is %d",num,sum);
+
+        for (int i = 0; i < num; i++)
+        { free(p[i]);
+          p[i] = NULL;
+        }
+    }
+    else
+      printf("OK");
+ }
+
+  int main()
+  {
+        sum();
+  }      
